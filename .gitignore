@@ -1,2 +1,2 @@
-vendor
-.vendir*
+helm/plugin-barman-cloud/charts/*.tgz
+helm/plugin-barman-cloud/Chart.lock
