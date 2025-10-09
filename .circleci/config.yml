@@ -45,7 +45,7 @@ workflows:
     #     app_name: plugin-barman-cloud
     #     app_collection_repo: capa-app-collection
     #     requires:
-    #     - push-pluginbarmancloud-app-to-control-plane-catalog
+    #     - push-plugin-barman-cloud-app-to-control-plane-catalog
     #     filters:
     #       branches:
     #         ignore: /.*/
@@ -58,7 +58,7 @@ workflows:
     #     app_name: plugin-barman-cloud
     #     app_collection_repo: capz-app-collection
     #     requires:
-    #     - push-pluginbarmancloud-app-to-control-plane-catalog
+    #     - push-plugin-barman-cloud-app-to-control-plane-catalog
     #     filters:
     #       branches:
     #         ignore: /.*/
@@ -71,7 +71,7 @@ workflows:
     #     app_name: plugin-barman-cloud
     #     app_collection_repo: vsphere-app-collection
     #     requires:
-    #     - push-pluginbarmancloud-app-to-control-plane-catalog
+    #     - push-plugin-barman-cloud-app-to-control-plane-catalog
     #     filters:
     #       branches:
     #         ignore: /.*/
@@ -84,7 +84,7 @@ workflows:
     #     app_name: plugin-barman-cloud
     #     app_collection_repo: cloud-director-app-collection
     #     requires:
-    #     - push-pluginbarmancloud-app-to-control-plane-catalog
+    #     - push-plugin-barman-cloud-app-to-control-plane-catalog
     #     filters:
     #       branches:
     #         ignore: /.*/
@@ -97,7 +97,7 @@ workflows:
     #     app_name: plugin-barman-cloud
     #     app_collection_repo: proxmox-app-collection
     #     requires:
-    #     - push-pluginbarmancloud-app-to-control-plane-catalog
+    #     - push-plugin-barman-cloud-app-to-control-plane-catalog
     #     filters:
     #       branches:
     #         ignore: /.*/
