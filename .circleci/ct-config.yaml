@@ -1,0 +1,3 @@
+---
+chart-repos:
+- plugin-barman-cloud=https://cloudnative-pg.io/charts

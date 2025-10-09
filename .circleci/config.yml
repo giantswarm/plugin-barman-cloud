@@ -8,10 +8,11 @@ workflows:
     - architect/push-to-app-catalog:
         context: architect
         executor: app-build-suite
-        name: package-and-push-chart
-        app_catalog: giantswarm-catalog
-        app_catalog_test: giantswarm-test-catalog
-        chart: 'plugin-barman-cloud'
+        name: push-plugin-barman-cloud-app-to-control-plane-catalog
+        app_catalog: control-plane-catalog
+        app_catalog_test: control-plane-test-catalog
+        ct_config: ".circleci/ct-config.yml"
+        chart: plugin-barman-cloud
           # Trigger job on git tag.
         filters:
           tags:
@@ -20,3 +21,85 @@ workflows:
             ignore:
             - main
             - master
+
+    # - architect/push-to-app-catalog:
+    #     context: architect
+    #     executor: app-build-suite
+    #     name: push-cnpg-app-to-ops-catalog
+    #     app_catalog: giantswarm-operations-platform-catalog
+    #     app_catalog_test: giantswarm-operations-platform-test-catalog
+    #     ct_config: ".circleci/ct-config.yaml"
+    #     chart: plugin-barman-cloud
+    #       # Trigger job on git tag.
+    #     filters:
+    #       tags:
+    #         only: /^v.*/
+    #       branches:
+    #         ignore:
+    #         - main
+    #         - master
+
+    # - architect/push-to-app-collection:
+    #     name: capa-app-collection
+    #     context: architect
+    #     app_name: plugin-barman-cloud
+    #     app_collection_repo: capa-app-collection
+    #     requires:
+    #     - push-plugin-barman-cloud-app-to-control-plane-catalog
+    #     filters:
+    #       branches:
+    #         ignore: /.*/
+    #       tags:
+    #         only: /^v.*/
+
+    # - architect/push-to-app-collection:
+    #     name: capz-app-collection
+    #     context: architect
+    #     app_name: plugin-barman-cloud
+    #     app_collection_repo: capz-app-collection
+    #     requires:
+    #     - push-plugin-barman-cloud-app-to-control-plane-catalog
+    #     filters:
+    #       branches:
+    #         ignore: /.*/
+    #       tags:
+    #         only: /^v.*/
+
+    # - architect/push-to-app-collection:
+    #     name: vsphere-app-collection
+    #     context: architect
+    #     app_name: plugin-barman-cloud
+    #     app_collection_repo: vsphere-app-collection
+    #     requires:
+    #     - push-plugin-barman-cloud-app-to-control-plane-catalog
+    #     filters:
+    #       branches:
+    #         ignore: /.*/
+    #       tags:
+    #         only: /^v.*/
+
+    # - architect/push-to-app-collection:
+    #     name: cloud-director-app-collection
+    #     context: architect
+    #     app_name: plugin-barman-cloud
+    #     app_collection_repo: cloud-director-app-collection
+    #     requires:
+    #     - push-plugin-barman-cloud-app-to-control-plane-catalog
+    #     filters:
+    #       branches:
+    #         ignore: /.*/
+    #       tags:
+    #         only: /^v.*/
+
+    # - architect/push-to-app-collection:
+    #     name: proxmox-app-collection
+    #     context: architect
+    #     app_name: plugin-barman-cloud
+    #     app_collection_repo: proxmox-app-collection
+    #     requires:
+    #     - push-plugin-barman-cloud-app-to-control-plane-catalog
+    #     filters:
+    #       branches:
+    #         ignore: /.*/
+    #       tags:
+    #         only: /^v.*/
