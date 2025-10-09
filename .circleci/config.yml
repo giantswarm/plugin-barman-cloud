@@ -8,7 +8,7 @@ workflows:
     - architect/push-to-app-catalog:
         context: architect
         executor: app-build-suite
-        name: push-pluginbarmancloud-app-to-control-plane-catalog
+        name: push-plugin-barman-cloud-app-to-control-plane-catalog
         app_catalog: control-plane-catalog
         app_catalog_test: control-plane-test-catalog
         ct_config: ".circleci/ct-config.yml"
