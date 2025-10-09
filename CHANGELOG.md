@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2025-10-09
 
+### Added
+
 - Initial repo setup.
 
 [Unreleased]: https://github.com/giantswarm/plugin-barman-cloud/compare/v0.0.1...HEAD
