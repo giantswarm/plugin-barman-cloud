@@ -11,11 +11,11 @@ pluginbarmancloud:
 
   crds:
     create: true
-  
+
   serviceAccount:
     create: true
     name: ""
-  
+
   # -- Container Security Context.
   containerSecurityContext:
     allowPrivilegeEscalation: false
@@ -44,7 +44,7 @@ pluginbarmancloud:
   rbac:
     # -- Specifies whether Role and RoleBinding should be created.
     create: true
-  
+
   certificate:
     # -- Specifies whether the client certificate should be created.
     createClientCertificate: true
