@@ -1,0 +1,36 @@
+{{- if .Values.ciliumNetworkPolicy.enabled }}
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  labels:
+    {{- include "plugin-barman-cloud.labels" . | nindent 4 }}
+  name: {{ include "plugin-barman-cloud.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  egress:
+  - toEntities:
+    - kube-apiserver
+  - toEndpoints:
+    - matchExpressions:
+      - key: cnpg.io/cluster
+        operator: Exists
+      - key: io.kubernetes.pod.namespace
+        operator: Exists
+    toPorts:
+    - ports:
+      - port: "8000"
+        protocol: TCP
+      - port: "5432"
+        protocol: TCP
+  endpointSelector:
+    matchLabels:
+      {{- include "plugin-barman-cloud.labels" . | nindent 6 }}
+  ingress:
+  - fromEntities:
+    - kube-apiserver
+    - remote-node
+    - cluster
+    toPorts:
+    - ports:
+      - port: "9090"
+{{- end }}
