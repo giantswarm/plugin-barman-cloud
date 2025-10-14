@@ -3,11 +3,11 @@ pluginbarmancloud:
 
   image:
     registry: gsoci.azurecr.io
-    repository: giantswarm/plugin-barman-cloud
+    repository: giantswarm/cnpg-plugin-barman-cloud
 
   sidecarImage:
     registry: gsoci.azurecr.io
-    repository: giantswarm/plugin-barman-cloud-sidecar
+    repository: giantswarm/cnpg-plugin-barman-cloud-sidecar
 
   crds:
     create: true
