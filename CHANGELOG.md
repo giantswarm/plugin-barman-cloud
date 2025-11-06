@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add cilium network policy template in helm.
+
 ## [0.0.3] - 2025-10-14
 
 ### Changed
