@@ -1,6 +1,13 @@
 ciliumNetworkPolicy:
   enabled: false
 
+# Only set create: true if the pluginbarmancloud.serviceAccount.create is set to false.
+# This is to avoid creating a ServiceAccount twice.
+customServiceAccount:
+  create: false
+  name: ""
+  annotations: {}
+
 pluginbarmancloud:
   enabled: false
 
