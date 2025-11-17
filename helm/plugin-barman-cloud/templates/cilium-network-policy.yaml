@@ -28,7 +28,6 @@ spec:
   ingress:
   - fromEntities:
     - kube-apiserver
-    - remote-node
     - cluster
     toPorts:
     - ports:
