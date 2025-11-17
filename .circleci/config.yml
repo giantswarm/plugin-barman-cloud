@@ -22,23 +22,6 @@ workflows:
             - main
             - master
 
-    - architect/push-to-app-catalog:
-        context: architect
-        executor: app-build-suite
-        name: push-cnpg-app-to-ops-catalog
-        app_catalog: giantswarm-operations-platform-catalog
-        app_catalog_test: giantswarm-operations-platform-test-catalog
-        ct_config: ".circleci/ct-config.yaml"
-        chart: plugin-barman-cloud
-          # Trigger job on git tag.
-        filters:
-          tags:
-            only: /^v.*/
-          branches:
-            ignore:
-            - main
-            - master
-
     - architect/push-to-app-collection:
         name: capa-app-collection
         context: architect
