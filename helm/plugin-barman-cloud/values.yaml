@@ -3,6 +3,7 @@ ciliumNetworkPolicy:
 
 # Only set create: true if the pluginbarmancloud.serviceAccount.create is set to false.
 # This is to avoid creating a ServiceAccount twice.
+# This will be removed once the following upstream issue will be merged: https://github.com/cloudnative-pg/charts/pull/703
 customServiceAccount:
   create: false
   name: ""
