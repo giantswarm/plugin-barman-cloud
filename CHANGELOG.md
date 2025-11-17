@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Push app to collections.
 - Add cilium network policy template in helm.
 - Add custom service account to allow for IRSA usage until upstream PR is merged.
 
