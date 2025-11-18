@@ -108,6 +108,9 @@
                         }
                     }
                 },
+                "nameOverride": {
+                    "type": "string"
+                },
                 "podAnnotations": {
                     "type": "object"
                 },
