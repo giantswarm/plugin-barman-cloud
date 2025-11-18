@@ -10,6 +10,20 @@
                 }
             }
         },
+        "customServiceAccount": {
+            "type": "object",
+            "properties": {
+                "annotations": {
+                    "type": "object"
+                },
+                "create": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
         "pluginbarmancloud": {
             "type": "object",
             "properties": {
