@@ -1,5 +1,5 @@
 ciliumNetworkPolicy:
-  enabled: false
+  enabled: true
 
 # Only set create: true if the pluginbarmancloud.serviceAccount.create is set to false.
 # This is to avoid creating a ServiceAccount twice.
@@ -11,6 +11,9 @@ customServiceAccount:
 
 pluginbarmancloud:
   enabled: false
+
+  # Override the chart name to match the expected label format
+  nameOverride: "plugin-barman-cloud"
 
   image:
     registry: gsoci.azurecr.io
