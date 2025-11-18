@@ -24,7 +24,7 @@ spec:
         protocol: TCP
   endpointSelector:
     matchLabels:
-      {{- include "plugin-barman-cloud.labels" . | nindent 6 }}
+      {{- include "labels.selector" . | nindent 6 }}
   ingress:
   - fromEntities:
     - kube-apiserver
