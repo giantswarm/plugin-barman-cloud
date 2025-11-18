@@ -15,6 +15,6 @@ dependencies:
     version: 0.3.1
     repository: https://cloudnative-pg.io/charts
     condition: pluginbarmancloud.enabled
-version: 0.2.1
+version: 0.2.2
 annotations:
   application.giantswarm.io/team: atlas
