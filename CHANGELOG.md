@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.1] - 2025-11-18
+
 ### Fixed
 
 - Fix cilium network policy `endpointSelector`'s `matchLabels` field.
@@ -43,7 +45,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial repo setup.
 
-[Unreleased]: https://github.com/giantswarm/plugin-barman-cloud/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/giantswarm/plugin-barman-cloud/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/giantswarm/plugin-barman-cloud/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/giantswarm/plugin-barman-cloud/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/giantswarm/plugin-barman-cloud/compare/v0.0.3...v0.1.0
 [0.0.3]: https://github.com/giantswarm/plugin-barman-cloud/compare/v0.0.2...v0.0.3
