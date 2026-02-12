@@ -12,7 +12,7 @@ sources:
 dependencies:
   - name: plugin-barman-cloud
     alias: pluginbarmancloud
-    version: 0.3.1
+    version: 0.5.0
     repository: https://cloudnative-pg.io/charts
     condition: pluginbarmancloud.enabled
 version: 0.2.2
