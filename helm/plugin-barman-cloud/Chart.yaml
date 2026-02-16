@@ -17,4 +17,4 @@ dependencies:
     condition: pluginbarmancloud.enabled
 version: 0.2.2
 annotations:
-  application.giantswarm.io/team: atlas
+  io.giantswarm.application.team: atlas
