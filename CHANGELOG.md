@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade chart from 0.5.0 to 0.6.0
+- Upgrade plugin-barman-cloud from 0.11.0 to 0.12.0 ([changelog](https://github.com/cloudnative-pg/plugin-barman-cloud/blob/main/CHANGELOG.md#0120-2026-04-13))
+
 ## [0.3.0] - 2026-03-03
 
 ### Changed
