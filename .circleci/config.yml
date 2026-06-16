@@ -13,7 +13,8 @@ workflows:
         app_catalog_test: control-plane-test-catalog
         ct_config: ".circleci/ct-config.yml"
         chart: plugin-barman-cloud
-          # Trigger job on git tag.
+        override_app_version: false
+        # Trigger job on git tag.
         filters:
           tags:
             only: /^v.*/
@@ -21,4 +22,3 @@ workflows:
             ignore:
             - main
             - master
-
