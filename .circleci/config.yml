@@ -11,7 +11,6 @@ workflows:
         name: push-plugin-barman-cloud-app-to-control-plane-catalog
         app_catalog: control-plane-catalog
         app_catalog_test: control-plane-test-catalog
-        ct_config: ".circleci/ct-config.yml"
         chart: plugin-barman-cloud
         override_app_version: false
         # Trigger job on git tag.
