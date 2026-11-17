@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Fix ABS config to not override AppVersion in Chart.yaml
+- Update architect to v10.18.0 (giantswarm/plugin-barman-cloud#129)
 
 ## [0.4.0] - 2026-05-22
 
