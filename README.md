@@ -25,7 +25,7 @@ There are several ways to install this app onto a workload cluster.
 The plugin and the CloudNativePG operator talk over mTLS. With `pluginbarmancloud.enabled: true`,
 the chart has cert-manager issue both certificates, `barman-cloud-server-tls` and
 `barman-cloud-client-tls`, and cert-manager renews them. They come from a namespaced, self-signed
-`Issuer` the chart creates in the release namespace (`pluginbarmancloud.certificate.createIssuer`).
+`Issuer` the chart creates in the release namespace (the upstream chart's `certificate.createIssuer`, on by default).
 
 That Issuer is named `letsencrypt-giantswarm`, but it is not Let's Encrypt: the name is historical.
 Keep it. A new `issuerName` makes cert-manager reissue both certificates under a new CA.

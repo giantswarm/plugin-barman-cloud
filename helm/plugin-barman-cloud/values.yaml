@@ -64,13 +64,10 @@ pluginbarmancloud:
     createClientCertificate: true
     # -- Specifies whether the server certificate should be created.
     createServerCertificate: true
-    # -- Specifies whether the chart creates the issuer: a namespaced, self-signed
-    # cert-manager Issuer named `issuerName`. The plugin then runs on any cluster with
-    # cert-manager, and cert-manager renews both certificates.
-    createIssuer: true
-    # -- The name of the Issuer the certificates use. With `createIssuer: true` it is the
-    # self-signed Issuer the chart creates, not Let's Encrypt: the name is historical. Keep
-    # it: a new name makes cert-manager reissue both certificates under a new CA.
+    # -- The name of the Issuer the certificates use. The upstream chart creates it
+    # (`createIssuer`, default true): a namespaced, self-signed Issuer, not Let's Encrypt.
+    # The name is historical. Keep it: a new name makes cert-manager reissue both
+    # certificates under a new CA.
     issuerName: letsencrypt-giantswarm
     # -- The duration of the certificates.
     duration: 2160h

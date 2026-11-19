@@ -33,9 +33,6 @@
                         "createClientCertificate": {
                             "type": "boolean"
                         },
-                        "createIssuer": {
-                            "type": "boolean"
-                        },
                         "createServerCertificate": {
                             "type": "boolean"
                         },
