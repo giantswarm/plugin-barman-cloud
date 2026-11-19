@@ -20,6 +20,20 @@ There are several ways to install this app onto a workload cluster.
 - [Using GitOps to instantiate the App](https://docs.giantswarm.io/tutorials/continuous-deployment/apps/add-appcr/)
 - By creating an [App resource](https://docs.giantswarm.io/reference/platform-api/crd/apps.application.giantswarm.io) using the platform API as explained in [Getting started with App Platform](https://docs.giantswarm.io/tutorials/fleet-management/app-platform/).
 
+## Certificates
+
+The plugin and the CloudNativePG operator talk over mTLS. With `pluginbarmancloud.enabled: true`,
+the chart has cert-manager issue both certificates, `barman-cloud-server-tls` and
+`barman-cloud-client-tls`, and cert-manager renews them. They come from a namespaced, self-signed
+`Issuer` the chart creates in the release namespace (`pluginbarmancloud.certificate.createIssuer`).
+
+That Issuer is named `letsencrypt-giantswarm`, but it is not Let's Encrypt: the name is historical.
+Keep it. A new `issuerName` makes cert-manager reissue both certificates under a new CA.
+
+The plugin therefore runs on any cluster with cert-manager, not only on Giant Swarm management
+clusters. To use an issuer of your own instead, set `pluginbarmancloud.certificate.createIssuer: false`
+and `pluginbarmancloud.certificate.issuerName` to a namespaced `Issuer` in the release namespace.
+
 ## Configuring
 
 ### values.yaml

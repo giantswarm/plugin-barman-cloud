@@ -1,0 +1,75 @@
+# The plugin's mTLS certificates come from a namespaced, self-signed Issuer the chart
+# creates, so the plugin runs on any cluster with cert-manager, with or without a Giant
+# Swarm management cluster's issuers.
+suite: mTLS certificates
+release:
+  name: plugin-barman-cloud
+  namespace: cnpg-system
+set:
+  pluginbarmancloud.enabled: true
+tests:
+
+  - it: creates a self-signed Issuer in the release namespace
+    template: charts/pluginbarmancloud/templates/certificate-issuer.yaml
+    asserts:
+      - hasDocuments:
+          count: 1
+      - isKind:
+          of: Issuer
+      - equal:
+          path: metadata.name
+          value: letsencrypt-giantswarm
+      - equal:
+          path: metadata.namespace
+          value: cnpg-system
+      - equal:
+          path: spec
+          value:
+            selfSigned: {}
+
+  - it: issues the server certificate from that Issuer
+    template: charts/pluginbarmancloud/templates/server-certificate.yaml
+    asserts:
+      - isKind:
+          of: Certificate
+      - equal:
+          path: spec.issuerRef
+          value:
+            group: cert-manager.io
+            kind: Issuer
+            name: letsencrypt-giantswarm
+      - equal:
+          path: spec.secretName
+          value: barman-cloud-server-tls
+
+  - it: issues the client certificate from that Issuer
+    template: charts/pluginbarmancloud/templates/client-certificate.yaml
+    asserts:
+      - isKind:
+          of: Certificate
+      - equal:
+          path: spec.issuerRef
+          value:
+            group: cert-manager.io
+            kind: Issuer
+            name: letsencrypt-giantswarm
+      - equal:
+          path: spec.secretName
+          value: barman-cloud-client-tls
+
+  - it: creates no Issuer with createIssuer off, and keeps the certificates on issuerName
+    set:
+      pluginbarmancloud.certificate.createIssuer: false
+      pluginbarmancloud.certificate.issuerName: my-issuer
+    templates:
+      - charts/pluginbarmancloud/templates/certificate-issuer.yaml
+      - charts/pluginbarmancloud/templates/server-certificate.yaml
+    asserts:
+      - hasDocuments:
+          count: 0
+        template: charts/pluginbarmancloud/templates/certificate-issuer.yaml
+      - equal:
+          path: spec.issuerRef.name
+          value: my-issuer
+        template: charts/pluginbarmancloud/templates/server-certificate.yaml
+
