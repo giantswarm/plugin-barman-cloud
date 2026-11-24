@@ -55,6 +55,20 @@ pluginbarmancloud:
 
   resources: {}
 
+  # -- Run a standby replica on another node. The plugin serves gRPC only on the
+  # leader; the standby takes over the lease when the leader pod stops.
+  replicaCount: 2
+
+  topologySpreadConstraints:
+    - maxSkew: 1
+      topologyKey: kubernetes.io/hostname
+      whenUnsatisfiable: DoNotSchedule
+      labelSelector:
+        matchLabels:
+          app.kubernetes.io/name: plugin-barman-cloud
+      matchLabelKeys:
+        - pod-template-hash
+
   rbac:
     # -- Specifies whether Role and RoleBinding should be created.
     create: true
